@@ -9,6 +9,8 @@ const app = express()
 /* IMPORT ROUTERS */
 
 const patientRouter = require("./routes/patient/router")
+const doctorRouter = require("./routes/doctor/router")
+const appointmentRouter = require("./routes/appointment/router")
 
 /* SETUP MIDDLEWARE */
 
@@ -21,6 +23,10 @@ app.use(morgan("dev"))
 
 /* SETUP ROUTES */
 app.use("/patient", patientRouter)
+
+app.use("/doctor", doctorRouter)
+
+app.use("/appointment", appointmentRouter)
 
 app.get("*", (req, res) => {
   res.json({ ok: true })
